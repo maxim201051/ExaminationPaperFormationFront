@@ -1,0 +1,6 @@
+export enum Position {
+  LECTURER = 'LECTURER',
+  SENIOR_LECTURER = 'SENIOR_LECTURER',
+  DOCENT = 'DOCENT',
+  PROFESSOR = 'PROFESSOR',
+}

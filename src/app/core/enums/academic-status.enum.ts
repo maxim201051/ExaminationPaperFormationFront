@@ -1,0 +1,5 @@
+export enum AcademicStatus {
+  ASSOCIATE_PROFESSOR = 'ASSOCIATE_PROFESSOR',
+  PROFESSOR = 'PROFESSOR',
+  NONE = 'NONE',
+}
