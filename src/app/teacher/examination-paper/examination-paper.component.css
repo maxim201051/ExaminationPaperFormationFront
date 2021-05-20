@@ -1,0 +1,206 @@
+/*
+* {
+  margin: 0;
+  padding: 0;
+}
+.container1 {
+  width: 750px;
+}
+
+.container2 {
+  color: black;
+  font-family: "Times New Roman", serif;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.container {
+  margin: 50px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 11.5pt;
+  text-align: center;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 9pt;
+  text-align: center;
+}
+
+p {
+  font-weight: normal;
+  font-size: 11pt;
+}
+
+.p-center {
+  text-align: center;
+}
+
+.p-left {
+  text-align: left
+}
+
+.s1 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.s2 {
+  font-weight: bold;
+  font-size: 9pt;
+  text-align: center;
+}
+
+.s3 {
+  font-weight: normal;
+  font-size: 7pt;
+  text-align: center;
+}
+
+.s4 {
+  font-weight: normal;
+  font-size: 9pt;
+  text-align: center;
+}
+
+.s5 {
+  font-weight: normal;
+  font-size: 9pt;
+  text-align: left;
+}
+
+.s6 {
+  font-weight: normal;
+  font-size: 9pt;
+  text-align: right;
+}
+
+.s7{
+  font-weight: normal;
+  font-size: 9pt;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.s8 {
+  font-weight: normal;
+  font-size: 9pt;
+  text-align: left;
+  padding-left: 1pt;
+}
+
+table {
+  overflow: visible;
+  border-collapse: collapse;
+}
+
+td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1pt;
+}
+
+.td-stat-national {
+  border-style: none;
+  width:76pt;
+}
+
+.td-stat-national-count {
+  border-style: none;
+  width:100pt;
+}
+.td-stat-national-percent {
+  border-style: none;
+  width:105pt;
+}
+.td-stat-ects {
+  border-style: none;
+  width:60pt;
+}
+.td-stat-ects-count {
+  border-style: none;
+  width:82pt;
+}
+
+.td-stat-ects-percent {
+  border-style: none;
+  width:66pt
+}
+
+.tr1{
+  height:34pt;
+}
+
+.tr2{
+  height:22pt;
+}
+
+.tr3 {
+  height: 12pt;
+}
+
+.td-head-img {
+  width:66pt;
+}
+
+.td-head-text {
+  width:354pt;
+}
+
+.td-exm-year {
+  width:135pt;
+}
+
+.td-exm-semester {
+  width:150pt;
+}
+
+.td-exm-course {
+  width:46pt;
+}
+
+.td-exm-group {
+  width:90pt;
+}
+
+.td-exm-date {
+  width:64pt;
+}
+
+.td-marks-number {
+  width:64pt
+}
+.td-marks-name {
+  width:160pt;
+}
+.td-marks-code {
+  width:64pt;
+}
+.td-marks-text {
+  width:196pt;
+}
+.td-marks-points {
+  width:46pt;
+}
+.td-marks-national {
+  width:88pt;
+}
+.td-marks-ects {
+  width:64pt;
+}
+*/
+table {
+   overflow: visible;
+   border-collapse: collapse;
+   width: 100%;
+  text-align: center;
+ }
+
+td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1pt;
+}

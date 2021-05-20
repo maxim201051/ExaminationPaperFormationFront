@@ -1,0 +1,13 @@
+<h1>Assign Subject Details to Group</h1>
+<select id="group" name="group" required [(ngModel)]="groupToSubjectRel.group">
+  <option *ngFor="let group of groups" [ngValue]="group">{{group.key}}</option>
+</select><br>
+<select id="subject" name="subject" required [(ngModel)]="groupToSubjectRel.subject">
+  <option *ngFor="let subject of subjectDetails" [ngValue]="{key: subject.subject.key, value: subject.id}">
+    {{subject.subject.key}};{{subject.hasCourseWork}};{{subject.creditNumber}};{{subject.totalHours}};
+    {{subject.lecturesHours}};{{subject.practiceHours}};{{subject.labWorkHours}};{{subject.selfAndControlWorkHours}};
+    {{subject.responsibleTeacher.key}};{{subject.controlForm}}
+  </option>
+</select><br>
+<button (click)="assignSubjectToGroup()">Assign Subject to Group</button>
+{{groupToSubjectRel | json}}

@@ -1,0 +1,18 @@
+<h1>Person info</h1>
+<label>Last Name:</label><br>
+<input type="text" [(ngModel)]="person.lastName" id="lastName" name="lastName" required><br>
+<label>First Name:</label><br>
+<input type="text" [(ngModel)]="person.firstName" id="firstName" name="firstName" required><br>
+<label>Patronymic:</label><br>
+<input type="text" [(ngModel)]="person.patronymic" id="patronymic" name="patronymic" required><br>
+<label>Contact Emails:</label><br>
+<label *ngFor="let email of person.contactEmails">{{email}}<br></label>
+<input type="email" [(ngModel)]="contactEmail" id="email" name="email"><br>
+<button (click)="addContactEmail()">Add</button><br>
+<label>Contact Phones:</label><br>
+<label *ngFor="let phone of person.contactPhones">{{phone}}<br></label>
+<input type="text" [(ngModel)]="contactPhone" id="phone" name="phone"><br>
+<button (click)="addContactPhone()">Add</button><br>
+<label>Other Contact Info:</label><br>
+<input type="text" [(ngModel)]="person.otherContactInfo" id="otherContactInfo" name="otherContactInfo"><br>
+{{contactPhone}}

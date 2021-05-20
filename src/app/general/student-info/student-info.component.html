@@ -1,0 +1,11 @@
+<app-person-info [person]="student"></app-person-info>
+<h1>Student Info</h1>
+<label>Student Code: {{student.studentCode}}</label><br>
+<label>Knowledge Branch: {{student.studyInfo.knowledgeBranch}}</label><br>
+<label>Speciality: {{student.studyInfo.speciality}}</label><br>
+<label>Specialization: {{student.studyInfo.specialization}}</label><br>
+<label>Group: {{student.group.key}}</label><br>
+<label>Educational Degree: {{student.studyInfo.educationalDegree}}</label><br>
+<label>Education Form: {{student.studyInfo.educationForm}}</label><br>
+<label>Planned term of study: {{student.studyInfo.startOfStudy}} - {{student.studyInfo.endOfStudy}}</label><br>
+<label>Curator: {{student.studyInfo.curator.key}}</label><br>

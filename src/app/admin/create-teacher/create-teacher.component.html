@@ -1,0 +1,16 @@
+<app-create-account [user]="teacherUser.user"></app-create-account>
+<app-create-person [person]="teacherUser.teacher"></app-create-person>
+<h1>Teacher Info</h1>
+<label>Position:</label><br>
+<select id="position" name="position" required [(ngModel)]="teacherUser.teacher.position">
+  <option *ngFor="let position of positions" [value]="position">{{position}}</option>
+</select><br>
+<label>Academic Degree:</label><br>
+<select id="academicDegree" name="academicDegree" required [(ngModel)]="teacherUser.teacher.academicDegree">
+  <option *ngFor="let academicDegree of academicDegrees" [value]="academicDegree">{{academicDegree}}</option>
+</select><br>
+<label>Academic Status:</label><br>
+<select id="academicStatus" name="academicStatus" required [(ngModel)]="teacherUser.teacher.academicStatus">
+  <option *ngFor="let academicStatus of academicStatuses" [value]="academicStatus">{{academicStatus}}</option>
+</select><br>
+<button (click)="createTeacher()">Create teacher</button>

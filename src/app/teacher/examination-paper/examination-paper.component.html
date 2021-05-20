@@ -1,0 +1,204 @@
+<h1>Examination Paper №{{examinationPaper.id}}</h1>
+<label>Дисципліна: </label><br>
+<label>Спеціальність: {{examinationPaper.speciality}}</label><br>
+<label>Освітня програма: {{examinationPaper.specialization}}</label><br>
+<label>Навчальний рік: {{examinationPaper.educationalYear}}</label><br>
+<label>Семестр: {{examinationPaper.semester}}</label><br>
+<label>Курс: {{examinationPaper.course}}</label><br>
+<label>Група: {{examinationPaper.group.key}}</label><br>
+<label>Дата контролю: {{examinationPaper.controlDate}}</label><br>
+<label>Форма контролю: {{examinationPaper.controlForm}}</label><br>
+<label>Викладач: {{examinationPaper.responsibleTeacher.key}}</label><br>
+<table>
+  <tr>
+    <td><p>№ п/п</p></td>
+    <td rowspan="2"><p >Прізвище ім&#39;я по батькові</p></td>
+    <td rowspan="2"><p>№ залікової книжки, ІНПС</p></td>
+    <td><p>Бали</p></td>
+    <td><p>За національною шкалою</p></td>
+    <td><p class="s4">За шкалою ECTS</p></td>
+  </tr>
+  <tbody *ngFor="let row of examinationPaper.rows">
+  <tr>
+    <td><p>{{examinationPaper.rows.indexOf(row) + 1}}</p></td>
+    <td><p>{{row.student.lastName + ' ' + row.student.firstName + ' ' + row.student.patronymic}}</p></td>
+    <td><p>{{row.student.studentCode}}</p></td>
+    <td><input [(ngModel)]="row.record.numberOfPoints"></td>
+    <td>
+      <select [(ngModel)]="row.record.nationalScaleMark">
+        <option *ngFor="let nationalScaleMark of nationalScaleMarks" [value]="nationalScaleMark">{{nationalScaleMark}}</option>
+      </select>
+    </td>
+    <td>
+      <select [(ngModel)]="row.record.ectsScaleMark">
+        <option *ngFor="let ectsScaleMark of ectsScaleMarks" [value]="ectsScaleMark">{{ectsScaleMark}}</option>
+      </select>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button (click)="updateExaminationPaper()">Update</button>
+
+<!--
+<body>
+<div class="container1">
+  <div class="container2">
+    <div class="container">
+      <table>
+        <tr class="tr1">
+          <td class="td-head-img" rowspan="2">
+            <p class="p-center">
+              <span><img alt="image" height="68" src="../../../assets/eptemplate/Image_001.png" width="80"/></span>
+            </p>
+          </td>
+          <td class="td-head-text">
+            <p class="s1">НАЦІОНАЛЬНИЙ АВІАЦІЙНИЙ УНІВЕРСИТЕТ</p>
+            <p class="s1">Факультет кібербезпеки, комп&#39;ютерної та програмної інженерії</p>
+          </td>
+          <td class="td-head-img" rowspan="2">
+            <p class="p-center">
+              <span><img alt="image" height="66" src="../../../assets/eptemplate/Image_002.jpg" width="70"/></span>
+            </p>
+          </td>
+        </tr>
+        <tr class="tr2">
+          <td class="td-head-text"><p class="s1">Кафедра Інженерії програмного забезпечення</p></td>
+        </tr>
+      </table>
+      <p><br/></p>
+      <p class="p-left">Спеціальність: {{examinationPaper.speciality}}</p>
+      <p class="p-left">Освітня програма: {{examinationPaper.specialization}}</p>
+      <table>
+        <tr class="tr2">
+          <td class="td-exm-year"><p class="s2">Навчальний рік</p></td>
+          <td class="td-exm-semester"><p class="s2">Семестр</p></td>
+          <td class="td-exm-course"><p class="s2">Курс</p></td>
+          <td class="td-exm-group"><p class="s2">Група</p></td>
+          <td class="td-exm-date">
+            <p class="s2">Дата</p>
+            <p class="s2">контролю</p>
+          </td>
+        </tr>
+        <tr class="tr3">
+          <td class="td-exm-year"><p class="s2">{{examinationPaper.educationalYear}}</p></td>
+          <td class="td-exm-semester"><p class="s2">{{examinationPaper.semester}}</p></td>
+          <td class="td-exm-course"><p class="s2">{{examinationPaper.course}}</p></td>
+          <td class="td-exm-group"><p class="s2">{{examinationPaper.group.key}}</p></td>
+          <td class="td-exm-date"><p class="s2">{{examinationPaper.controlDate}}</p></td>
+        </tr>
+      </table>
+      <h1>ЗАЛІКОВО-ЕКЗАМЕНАЦІЙНА ВІДОМІСТЬ № {{examinationPaper.id}}</h1>
+      <p *ngIf="examinationPaper.controlForm === controlForm.CREDIT" class="p-center">
+        семестрового контролю (<u>диференційований залік</u>, екзамен, курсова робота)
+      </p>
+      <p *ngIf="examinationPaper.controlForm === controlForm.EXAM" class="p-center">
+        семестрового контролю (диференційований залік, <u>екзамен</u>, курсова робота)
+      </p>
+      <p *ngIf="examinationPaper.controlForm === controlForm.COURSE_WORK" class="p-center">
+        семестрового контролю (диференційований залік, екзамен, <u>курсова робота</u>)
+      </p>
+      <p class="s3">(потрібне підкреслити)</p>
+
+      <p><br/></p>
+
+      <p class="p-left">з навчальної дисципліни: <b>{{examinationPaper.subject.key}}</b></p>
+
+      <p><br/></p>
+
+      <table>
+        <tr class="tr3">
+          <td class="td-marks-number" rowspan="2"><p class="s4">№ п/п</p></td>
+          <td class="td-marks-name" rowspan="2"><p class="s4">Прізвище ім&#39;я по батькові</p></td>
+          <td class="td-marks-code" rowspan="2"><p class="s4">№ залікової книжки, ІНПС</p></td>
+          <td class="td-marks-text" colspan="3"><p class="s4">Підсумкова семестрова рейтингова оцінка</p></td>
+        </tr>
+        <tr class="tr2">
+          <td class="td-marks-points"><p class="s4">Бали</p></td>
+          <td class="td-marks-national"><p class="s4">За національною шкалою</p></td>
+          <td class="td-marks-ects"><p class="s4">За шкалою ECTS</p></td>
+        </tr>
+        <tbody *ngFor="let row of examinationPaper.rows">
+        <tr class="tr3">
+          <td class="td-marks-number"><p class="s4">{{examinationPaper.rows.indexOf(row) + 1}}</p></td>
+          <td class="td-marks-name"><p
+            class="s8">{{row.student.lastName + ' ' + row.student.firstName + ' ' + row.student.patronymic}}</p></td>
+          <td class="td-marks-code"><p class="s4">{{row.student.studentCode}}</p></td>
+          <td class="td-marks-points"><p class="s4">{{row.record.numberOfPoints}}</p></td>
+          <td class="td-marks-national"><p class="s4">{{row.record.nationalScaleMark}}</p></td>
+          <td class="td-marks-ects"><p class="s4">{{row.record.ectsScaleMark}}</p></td>
+        </tr>
+        </tbody>
+      </table>
+      <h3>Підсумки семестрового контролю:</h3>
+      <p class="s5">Кількість студентів в академічній групі : {{examinationPaper.rows.length}}</p>
+      <p class="s5">Всього проходило: {{getAllowedStudentsNumber()}} Не з’явилося: 0
+        Не атестовано: {{calculateNonSatisfactorilyPersonNumber()}}</p>
+      <p class="s5">Із них не з&#39;явилось з поважних причин: 0</p>
+      <h3>Отримали оцінки:</h3>
+      <table>
+        <tr class="tr3">
+          <td class="td-stat-national"><p class="s5">Відмінно</p></td>
+          <td class="td-stat-national-count"><p
+            class="s4">{{calculateNationalScaleMarkPersonNumber(nationalScale.EXCELLENT)}}</p></td>
+          <td class="td-stat-national-percent"><p
+            class="s7">{{calculateNationalScaleMarkPercentage(nationalScale.EXCELLENT)}}%</p></td>
+          <td class="td-stat-ects"><p class="s5">А</p></td>
+          <td class="td-stat-ects-count"><p class="s4">{{calculateEctsMarkPersonNumber(ectsScale.A)}}</p></td>
+          <td class="td-stat-ects-percent"><p class="s6">{{calculateEctsMarkPercentage(ectsScale.A)}}%</p></td>
+        </tr>
+        <tr class="tr3">
+          <td class="td-stat-national"><p class="s5">Добре</p></td>
+          <td class="td-stat-national-count"><p
+            class="s4">{{calculateNationalScaleMarkPersonNumber(nationalScale.GOOD)}}</p></td>
+          <td class="td-stat-national-percent"><p
+            class="s7">{{calculateNationalScaleMarkPercentage(nationalScale.GOOD)}}%</p></td>
+          <td class="td-stat-ects"><p class="s5">В</p></td>
+          <td class="td-stat-ects-count"><p class="s4">{{calculateEctsMarkPersonNumber(ectsScale.B)}}</p></td>
+          <td class="td-stat-ects-percent"><p class="s6">{{calculateEctsMarkPercentage(ectsScale.B)}}%</p></td>
+        </tr>
+        <tr class="tr3">
+          <td class="td-stat-national"><p><br/></p></td>
+          <td class="td-stat-national-count"><p><br/></p></td>
+          <td class="td-stat-national-percent"><p><br/></p></td>
+          <td class="td-stat-ects"><p class="s5">С</p></td>
+          <td class="td-stat-ects-count"><p class="s4">{{calculateEctsMarkPersonNumber(ectsScale.C)}}</p></td>
+          <td class="td-stat-ects-percent"><p class="s6">{{calculateEctsMarkPercentage(ectsScale.C)}}%</p></td>
+        </tr>
+        <tr class="tr3">
+          <td class="td-stat-national"><p class="s5">Задовільно</p></td>
+          <td class="td-stat-national-count"><p
+            class="s4">{{calculateNationalScaleMarkPersonNumber(nationalScale.SATISFACTORILY)}}</p></td>
+          <td class="td-stat-national-percent"><p
+            class="s7">{{calculateNationalScaleMarkPercentage(nationalScale.SATISFACTORILY)}}%</p></td>
+          <td class="td-stat-ects"><p class="s5">D</p></td>
+          <td class="td-stat-ects-count"><p class="s4">{{calculateEctsMarkPersonNumber(ectsScale.D)}}</p></td>
+          <td class="td-stat-ects-percent"><p class="s6">{{calculateEctsMarkPercentage(ectsScale.D)}}%</p></td>
+        </tr>
+        <tr class="tr3">
+          <td class="td-stat-national"><p><br/></p></td>
+          <td class="td-stat-national-count"><p><br/></p></td>
+          <td class="td-stat-national-percent"><p><br/></p></td>
+          <td class="td-stat-ects"><p class="s5">E</p></td>
+          <td class="td-stat-ects-count"><p class="s4">{{calculateEctsMarkPersonNumber(ectsScale.E)}}</p></td>
+          <td class="td-stat-ects-percent"><p class="s6">{{calculateEctsMarkPercentage(ectsScale.E)}}%</p></td>
+        </tr>
+        <tr class="tr3">
+          <td class="td-stat-national"><p class="s5">Незадовільно</p></td>
+          <td class="td-stat-national-count"><p
+            class="s4">{{calculateNationalScaleMarkPersonNumber(nationalScale.NON_SATISFACTORILY)}}</p></td>
+          <td class="td-stat-national-percent"><p
+            class="s7">{{calculateNationalScaleMarkPercentage(nationalScale.NON_SATISFACTORILY)}}%</p></td>
+          <td class="td-stat-ects"><p class="s5">FX</p></td>
+          <td class="td-stat-ects-count"><p class="s4">{{calculateEctsMarkPersonNumber(ectsScale.FX)}}</p></td>
+          <td class="td-stat-ects-percent"><p class="s6">{{calculateEctsMarkPercentage(ectsScale.FX)}}%</p></td>
+        </tr>
+      </table>
+
+      <p><br/></p>
+
+      <p class="p-center">Екзаменатор_______________({{getInitialsForResponsibleTeacher()}})</p>
+      <p class="p-center">Декан ФККПІ_______________(Нестеренко К.С.)</p>
+    </div>
+  </div>
+</div>
+-->

@@ -1,0 +1,31 @@
+<div class="container">
+ <!-- <mat-card>
+    <mat-card-content>Прізвище</mat-card-content>
+    <mat-card-subtitle>{{person.lastName}}</mat-card-subtitle>
+    <br>
+    <mat-card-content>Ім&#39;я</mat-card-content>
+    <mat-card-subtitle>{{person.firstName}}</mat-card-subtitle>
+    <br>
+    <mat-card-content>Ім&#39;я по батькові</mat-card-content>
+    <mat-card-subtitle>{{person.patronymic}}</mat-card-subtitle>
+    <br>
+    <mat-card-content>Контактна електронна пошта</mat-card-content>
+    <mat-card-subtitle *ngFor="let email of person.contactEmails">{{email}}</mat-card-subtitle>
+    <br>
+    <mat-card-content>Контактні телефони</mat-card-content>
+    <mat-card-subtitle *ngFor="let phone of person.contactPhones">{{phone}}</mat-card-subtitle>
+    <br>
+    <mat-card-content>Інша контактна інформація</mat-card-content>
+    <mat-card-subtitle>{{person.otherContactInfo}}</mat-card-subtitle>
+  </mat-card>-->
+  <h1>Person Info</h1>
+  <label>Last Name: {{person.lastName}}</label><br>
+  <label>First Name: {{person.firstName}}</label><br>
+  <label>Patronymic: {{person.patronymic}}</label><br>
+  <label>Contact Emails:</label><br>
+  <label *ngFor="let email of person.contactEmails">{{email}}<br></label>
+  <label>Contact Phones:</label><br>
+  <label *ngFor="let phoneNumber of person.contactPhones">{{phoneNumber}}<br></label>
+  <label>Other Contact Info:</label><br>
+  <label>{{person.otherContactInfo}}</label><br>
+</div>

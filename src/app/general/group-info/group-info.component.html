@@ -1,0 +1,18 @@
+<h1>Group Info</h1>
+<label>Group Number: {{group.groupNumber}}</label><br>
+<label>Course: {{group.studyInfo.course}}</label><br>
+<label>Educational Degree: {{group.studyInfo.educationalDegree}}</label><br>
+<label>Knowledge Branch: {{group.studyInfo.knowledgeBranch}}</label><br>
+<label>Speciality: {{group.studyInfo.speciality}}</label><br>
+<label>Specialization: {{group.studyInfo.specialization}}</label><br>
+<label>Education Form: {{group.studyInfo.educationForm}}</label><br>
+<label>Planned Term of Study: {{group.studyInfo.startOfStudy}} - {{group.studyInfo.endOfStudy}}</label><br>
+<label>
+  <a routerLink="/general/teacher" [queryParams]="{id: group.studyInfo.curator.value}">{{group.studyInfo.curator.key}}</a>
+</label><br>
+<label>Group Students:</label><br>
+<ol>
+  <li *ngFor="let student of group.students | keyvalue">
+    <a routerLink="/general/student" [queryParams]="{id: student.value}">{{student.key}}</a>
+  </li>
+</ol>

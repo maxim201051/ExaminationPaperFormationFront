@@ -1,0 +1,60 @@
+<div class="mat-elevation-z8">
+  <br><br><br><br><br>
+  <table mat-table  [dataSource]="dataSource">
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef> Назва Предмету </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.subject.key}} </td>
+    </ng-container>
+    <ng-container matColumnDef="creditNumber">
+      <th mat-header-cell *matHeaderCellDef> Кількість Кредитів </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.creditNumber}} </td>
+    </ng-container>
+    <ng-container matColumnDef="totalHours">
+      <th mat-header-cell *matHeaderCellDef> Всього Годин </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.totalHours}} </td>
+    </ng-container>
+    <ng-container matColumnDef="lecturesHours">
+      <th mat-header-cell *matHeaderCellDef> Лекцій </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.lecturesHours}} </td>
+    </ng-container>
+    <ng-container matColumnDef="practiceHours">
+      <th mat-header-cell *matHeaderCellDef> Практичних </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.practiceHours}} </td>
+    </ng-container>
+    <ng-container matColumnDef="labWorkHours">
+      <th mat-header-cell *matHeaderCellDef> Лабораторних </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.labWorkHours}} </td>
+    </ng-container>
+    <ng-container matColumnDef="selfAndControlWorkHours">
+      <th mat-header-cell *matHeaderCellDef> Самостійних і Контрольних Робіт </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.selfAndControlWorkHours}} </td>
+    </ng-container>
+    <ng-container matColumnDef="controlForm">
+      <th mat-header-cell *matHeaderCellDef> Форма Контролю </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.controlForm}} </td>
+    </ng-container>
+    <ng-container matColumnDef="hasCourseWork">
+      <th mat-header-cell *matHeaderCellDef> Курсова робота </th>
+      <td mat-cell *matCellDef="let subjectDetails"> {{subjectDetails.hasCourseWork}} </td>
+    </ng-container>
+    <ng-container matColumnDef="responsibleTeacher">
+      <th mat-header-cell *matHeaderCellDef> Викладач </th>
+      <td mat-cell *matCellDef="let subjectDetails">
+        <a routerLink="/general/teacher" [queryParams]="{id: subjectDetails.responsibleTeacher.value}">
+        {{subjectDetails.responsibleTeacher.key}}
+        </a>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Редагувати </th>
+      <td mat-cell *matCellDef="let subjectDetails">
+        <a routerLink="/admin/subject-details/edit" [queryParams]="{id: subjectDetails.id}">edit</a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+</div>

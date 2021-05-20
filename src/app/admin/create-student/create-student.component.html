@@ -1,0 +1,10 @@
+<app-create-account [user]="studentUser.user"></app-create-account>
+<app-create-person [person]="studentUser.student"></app-create-person>
+<h1>Student Info</h1>
+<label>Student Code:</label><br>
+<input type="text" [(ngModel)]="studentUser.student.studentCode" id="studentCode" name="studentCode" required><br>
+<label>Group:</label><br>
+<select id="group" name="group" required [(ngModel)]="studentUser.student.group">
+  <option *ngFor="let group of groups" [ngValue]="group">{{group.key}}</option>
+</select><br>
+<button (click)="createStudent()">Create student</button><br>

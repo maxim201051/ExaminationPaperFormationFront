@@ -1,0 +1,34 @@
+<h1>Create Group</h1>
+<label>Group Number:</label><br>
+<input type="text" [(ngModel)]="group.groupNumber" id="groupNumber" name="groupNumber" required><br>
+<label>Course:</label><br>
+<input type="number" [(ngModel)]="group.studyInfo.course" id="course" name="course" required><br>
+<label>Educational Degree:</label><br>
+<select id="educationalDegree" name="educationalDegree" required [(ngModel)]="group.studyInfo.educationalDegree">
+  <option *ngFor="let educationalDegree of educationalDegrees" [value]="educationalDegree">{{educationalDegree}}</option>
+</select><br>
+<label>Knowledge Branch:</label><br>
+<input type="text" [(ngModel)]="group.studyInfo.knowledgeBranch" id="knowledgeBranch" name="knowledgeBranch" required><br>
+<label>Speciality:</label><br>
+<input type="text" [(ngModel)]="group.studyInfo.speciality" id="speciality" name="speciality" required><br>
+<label>Specialization:</label><br>
+<input type="text" [(ngModel)]="group.studyInfo.specialization" id="specialization" name="specialization" required><br>
+<label>Education Form:</label><br>
+<select id="educationForm" name="educationForm" required [(ngModel)]="group.studyInfo.educationForm">
+  <option *ngFor="let educationForm of educationForms" [value]="educationForm">{{educationForm}}</option>
+</select><br>
+<label>Planned Term of Study:</label><br>
+<mat-form-field appearance="fill">
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate [(ngModel)]="group.studyInfo.startOfStudy" placeholder="Start date">
+    <input matEndDate [(ngModel)]="group.studyInfo.endOfStudy" placeholder="End date">
+  </mat-date-range-input>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field><br>
+<label>Curator:</label><br>
+<select id="curator" name="curator" required [(ngModel)]="group.studyInfo.curator">
+  <option *ngFor="let curator of teachers" [ngValue]="curator">{{curator.key}}</option>
+</select><br>
+<button (click)="createGroup()">Create group</button>

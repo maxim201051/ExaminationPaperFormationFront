@@ -1,0 +1,29 @@
+<div class="mat-elevation-z8">
+  <br><br><br><br><br>
+  <table mat-table  [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> ПІБ </th>
+      <td mat-cell *matCellDef="let teacher">
+        <a routerLink="/general/teacher" [queryParams]="{id: teacher.id}">
+          {{teacher.lastName + ' ' + teacher.firstName + ' ' + teacher.patronymic}}
+        </a>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Посада </th>
+      <td mat-cell *matCellDef="let teacher"> {{teacher.position}} </td>
+    </ng-container>
+    <ng-container matColumnDef="academicDegree">
+      <th mat-header-cell *matHeaderCellDef> Вчений Ступінь </th>
+      <td mat-cell *matCellDef="let teacher"> {{teacher.academicDegree}} </td>
+    </ng-container>
+    <ng-container matColumnDef="academicStatus">
+      <th mat-header-cell *matHeaderCellDef> Вчене Звання </th>
+      <td mat-cell *matCellDef="let teacher"> {{teacher.academicStatus}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+</div>

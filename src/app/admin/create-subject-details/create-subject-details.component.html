@@ -1,0 +1,30 @@
+<h1>Subject Details</h1>
+<label>Subject:</label><br>
+<select id="subject" name="subject" required [(ngModel)]="subjectDetails.subject">
+  <option *ngFor="let subject of subjects" [ngValue]="subject">{{subject.key}}</option>
+</select><br>
+<section class="section">
+  <mat-checkbox color="primary" (change)="setHasCourseWork($event)" labelPosition="before" class="margin">Has Course Work:</mat-checkbox>
+</section>
+<label>Credit Number:</label><br>
+<input type="number" [(ngModel)]="subjectDetails.creditNumber" id="creditNumber" name="creditNumber" required><br>
+<label>Total Hours:</label><br>
+<input type="number" [(ngModel)]="subjectDetails.totalHours" id="totalHours" name="totalHours" required><br>
+<label>Lectures Hours:</label><br>
+<input type="number" [(ngModel)]="subjectDetails.lecturesHours" id="lecturesHours" name="lecturesHours" required><br>
+<label>Practice Hours:</label><br>
+<input type="number" [(ngModel)]="subjectDetails.practiceHours" id="practiceHours" name="practiceHours" required><br>
+<label>Lab Work Hours:</label><br>
+<input type="number" [(ngModel)]="subjectDetails.labWorkHours" id="labWorkHours" name="labWorkHours" required><br>
+<label>Self And Control Work Hours:</label><br>
+<input type="number" [(ngModel)]="subjectDetails.selfAndControlWorkHours" id="selfAndControlWorkHours" name="selfAndControlWorkHours" required><br>
+<label>Responsible Teacher:</label><br>
+<select id="responsibleTeacher" name="responsibleTeacher" required [(ngModel)]="subjectDetails.responsibleTeacher">
+  <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{teacher.key}}</option>
+</select><br>
+<label>Control Form:</label><br>
+<select id="controlForm" name="controlForm" required [(ngModel)]="subjectDetails.controlForm">
+  <option *ngFor="let controlForm of controlForms" [value]="controlForm">{{controlForm}}</option>
+</select><br>
+<button (click)="createSubjectDetails()">Create Subject Details</button>
+{{subjectDetails | json}}

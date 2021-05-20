@@ -1,0 +1,7 @@
+<h1>Subjects</h1>
+<ol>
+  <li *ngFor="let subject of subjects">
+    {{subject.key}}
+  </li>
+</ol>
+<button (click)="addSubjectClick()">Add Subject</button>

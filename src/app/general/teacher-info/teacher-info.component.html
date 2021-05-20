@@ -1,0 +1,7 @@
+<app-person-info [person]="teacher"></app-person-info>
+<h1>Teacher Info</h1>
+<label>Position: {{teacher.position}}</label><br>
+<label>Academic Degree: {{teacher.academicDegree}}</label><br>
+<label>Academic Status: {{teacher.academicStatus}}</label><br>
+<label>Hiring Date: {{teacher.hiringDate}}</label><br>
+<label *ngIf="teacher.dismissed">Dismissal Date: {{teacher.dismissalDate}}</label>
