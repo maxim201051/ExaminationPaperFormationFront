@@ -1,8 +1,8 @@
 import {GroupStudentStudyInfo} from './group-student-study-info';
 
 export interface Group {
-  id: number;
-  groupNumber: string;
+  id: number | null;
+  groupNumber: string | null;
   studyInfo: GroupStudentStudyInfo;
   students: Map<string, number>;
 }

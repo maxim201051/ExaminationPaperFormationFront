@@ -3,14 +3,14 @@ import {EducationForm} from '../enums/education-form.enum';
 import {StringNumberPair} from './string-number-pair';
 
 export interface GroupStudentStudyInfo {
-  course: number;
-  educationalDegree: EducationalDegree;
-  knowledgeBranch: string;
-  speciality: string;
-  specialization: string;
-  educationForm: EducationForm;
-  startOfStudy: Date;
-  graduated: boolean;
-  endOfStudy: Date;
+  course: number | null;
+  educationalDegree: EducationalDegree | null;
+  knowledgeBranch: string | null;
+  speciality: string | null;
+  specialization: string | null;
+  educationForm: EducationForm | null;
+  startOfStudy: Date | null;
+  graduated: boolean | null;
+  endOfStudy: Date | null;
   curator: StringNumberPair;
 }

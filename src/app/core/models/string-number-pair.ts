@@ -1,4 +1,4 @@
 export interface StringNumberPair {
-  key: string;
-  value: number;
+  key: string | null;
+  value: number | null;
 }

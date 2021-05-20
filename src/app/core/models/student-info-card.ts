@@ -4,6 +4,6 @@ import {GroupStudentStudyInfo} from './group-student-study-info';
 
 export interface StudentInfoCard extends PersonInfoCard {
   group: StringNumberPair;
-  studentCode: string;
+  studentCode: string | null;
   studyInfo: GroupStudentStudyInfo;
 }

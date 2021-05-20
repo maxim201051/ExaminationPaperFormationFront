@@ -1,10 +1,10 @@
 export interface PersonInfoCard {
-  id: number;
-  firstName: string;
-  lastName: string;
-  patronymic: string;
+  id: number | null;
+  firstName: string | null;
+  lastName: string | null;
+  patronymic: string | null;
   contactEmails: string[];
   contactPhones: string[];
-  otherContactInfo: string;
-  accountId: number;
+  otherContactInfo: string | null;
+  accountId: number | null;
 }
