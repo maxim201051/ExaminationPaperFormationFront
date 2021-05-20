@@ -17,7 +17,7 @@ export class SubjectService {
     return this.http.get<StringNumberPair[]>(`${this.apiServerUrl}/admin/subject/all`);
   }
 
-  public addSubject(subject: StringNumberPair): Observable<StringNumberPair[]> {
+  public addSubject(subject: string): Observable<StringNumberPair[]> {
     return this.http.post<StringNumberPair[]>(`${this.apiServerUrl}/admin/subject`, subject);
   }
 

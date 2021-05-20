@@ -1,8 +1,8 @@
 export enum ECTSScale {
-  A = 'A',
-  B = 'B',
-  C = 'C',
-  D = 'D',
-  E = 'E',
-  FX = 'FX',
+  A,
+  B,
+  C,
+  D,
+  E,
+  FX,
 }

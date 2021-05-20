@@ -14,7 +14,7 @@ export class ExaminationPaperService {
   constructor(private http: HttpClient) {
   }
 
-  public findExaminationPaper(groupId: number, subjectDetailsId: number, semester: number, type: ControlForm)
+  public findExaminationPaper(groupId: number, subjectDetailsId: number, semester: number, type: string)
     : Observable<ExaminationPaper> {
     return this.http.get<ExaminationPaper>(`${this.apiServerUrl}/teacher/examination-paper/?groupId=${groupId}
     &subjectDetailsId=${subjectDetailsId}&semester=${semester}&type=${type}`);

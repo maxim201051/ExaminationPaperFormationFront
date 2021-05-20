@@ -6,6 +6,7 @@ import {TeacherInfoCard} from '../models/teacher-info-card';
 import {TeacherUser} from '../models/teacher-user';
 import {GroupToSubjectRel} from '../models/group-to-subject-rel';
 import {StudentInfoCard} from '../models/student-info-card';
+import {StringNumberPair} from '../models/string-number-pair';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class TeacherService {
 
   public getAllTeachers(): Observable<TeacherInfoCard[]> {
     return this.http.get<TeacherInfoCard[]>(`${this.apiServerUrl}/general/teacher/all`);
+  }
+
+  public getAllTeachersInNameIdFormat(): Observable<StringNumberPair[]> {
+    return this.http.get<StringNumberPair[]>(`${this.apiServerUrl}/admin/teacher/all-pair`);
   }
 
   public getTeacherById(teacherId: number): Observable<TeacherInfoCard> {
